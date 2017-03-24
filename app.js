@@ -29,4 +29,7 @@ app.use(async(ctx) => {
 })
 
 
-app.listen(8088)
+const PORT = process.env.NODE_ENV || 8088
+app.listen(PORT)
+console.log(`server listen on port http://localhost:${PORT}`)
+

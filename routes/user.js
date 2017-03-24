@@ -7,7 +7,8 @@ const router = new Router({
 
 router
 	.get('/', User.index)
-	.get('/list/:id', User.getUserPage)
+	.get('/:id', User.getUser)
+	// .get('/list', User.getUserPage)
 	.post('/login', User.login)
 
 
