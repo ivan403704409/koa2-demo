@@ -32,3 +32,13 @@ export async function login(ctx) {
 		page: 'login'
 	}
 }
+
+// 渲染某用户的文章列表页
+export async function renderArticles(ctx) {
+	let uid = ctx.params.uid
+	let articles = await User.getArticles(uid)
+	await ctx.render('article_list', {
+		title: '文章列表',
+		articles,
+	})
+}
