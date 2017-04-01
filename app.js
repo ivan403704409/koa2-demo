@@ -19,7 +19,9 @@ app.use(bodyParser())
 
 // 路由
 import user from './routes/user'
+import index from './routes/index'
 app.use(user.routes())
+app.use(index.routes())
 
 // 404页面
 app.use(async(ctx) => {
@@ -28,8 +30,11 @@ app.use(async(ctx) => {
   }
 })
 
-
-const PORT = process.env.NODE_ENV || 8088
-app.listen(PORT)
-console.log(`server listen on port http://localhost:${PORT}`)
+let PORT = process.env.PORT || 8088
+if(process.env.NODE_ENV==='production'){
+	PORT = '80'
+}
+const HOST = process.env.NODE_ENV==='production' ? '119.29.216.227' : 'localhost'
+app.listen(PORT, HOST)
+console.log(`server listen on port http://${HOST}:${PORT}`)
 
