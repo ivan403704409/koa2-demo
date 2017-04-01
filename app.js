@@ -32,7 +32,7 @@ app.use(async(ctx) => {
 
 let PORT = process.env.PORT || 8088
 if(process.env.NODE_ENV==='production'){
-	PORT = '80'
+	PORT = 80
 }
 const HOST = process.env.NODE_ENV==='production' ? '119.29.216.227' : 'localhost'
 app.listen(PORT, HOST)
